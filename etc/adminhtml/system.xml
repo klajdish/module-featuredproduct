@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="sherocommerce" translate="label" sortOrder="999">
+			<label>Shero Commerce</label>
+		</tab>
+		<section id="featured_product" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Featured Product</label>
+			<tab>sherocommerce</tab>
+			<resource>SheroCommerce_FeaturedProduct::config_sherocommerce_featuredproduct</resource>
+			<group id="settings" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                <label>General Settings</label>
+                <field id="sku" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product SKU</label>
+                    <comment>Enter the SKU of the product to display on the featured product card on the home page.</comment>
+                </field>
+                <field id="image_desktop_position" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Desktop Position</label>
+                    <source_model>SheroCommerce\FeaturedProduct\Model\Config\Source\ImageDesktopPosition</source_model>
+                    <comment>Select the position of the product image on the featured product card on the home page.</comment>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

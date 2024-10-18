@@ -1,0 +1,22 @@
+{
+    "name": "sherocommerce/module-featuredproduct",
+    "description": "Magento 2 Featured Product Module",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Klajdi Shehaj",
+            "email": "shehaj.klajdi@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SheroCommerce\\FeaturedProduct\\": ""
+        }
+    }
+}

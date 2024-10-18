@@ -1,0 +1,56 @@
+<?php
+/**
+ * @var $block \SheroCommerce\FeaturedProduct\Block\FeaturedProduct
+ */
+
+$featuredProduct = $block->getFeaturedProduct();
+
+$imageDesktopPosition = $block->getImageDesktopPosition();
+$baseClassName = 'shero-featured-product-card__order-';
+$imagePositionOrder = $baseClassName . $imageDesktopPosition;
+$productDetailsOrder = $baseClassName . ($imageDesktopPosition === '1' ? '2' : '1');
+?>
+
+<?php if ($featuredProduct): ?>
+    <div class="shero-featured-product-card" role="article">
+        <div class="shero-featured-product-card__image-wrapper <?= $block->escapeHtml($imagePositionOrder); ?>">
+            <img
+                class="shero-featured-product-card__image-wrapper-main"
+                src="<?= $block->escapeUrl($block->getImageUrl($featuredProduct)); ?>"
+                alt="<?= $block->escapeHtml($featuredProduct->getName()); ?>"
+                role="img"
+            />
+        </div>
+        <div class="shero-featured-product-card__details <?= $block->escapeHtml($productDetailsOrder); ?>">
+            <div class="shero-featured-product-card__info">
+                <h2 class="shero-featured-product-card__details-name shero-featured-product-card__font-xl">
+                    <?= $block->escapeHtml($featuredProduct->getName()); ?>
+                </h2>
+                <p class="shero-featured-product-card__details-price shero-featured-product-card__font-xl">
+                    <?= $block->escapeHtml($block->getPrice($featuredProduct)); ?>
+                </p>
+                <div class="shero-featured-product-card__details-description shero-featured-product-card__font-md">
+                    <?= /* @noEscape */ $block->getDescription($featuredProduct); ?>
+                </div>
+            </div>
+            <div class="shero-featured-product-card__actions">
+                <a
+                    class="shero-featured-product-card__btn
+                           shero-featured-product-card__btn--view
+                           shero-featured-product-card__font-md"
+                    href="<?= $block->escapeUrl($featuredProduct->getProductUrl()); ?>"
+                >
+                    <?= $block->escapeHtml(__('View Product')); ?>
+                </a>
+                <a
+                    class="shero-featured-product-card__btn
+                           shero-featured-product-card__btn--view
+                           shero-featured-product-card__font-md"
+                    href="<?= $block->escapeUrl($featuredProduct->getProductUrl()); ?>"
+                >
+                    <?= $block->escapeHtml(__('View Product')); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

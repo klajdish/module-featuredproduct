@@ -1,0 +1,87 @@
+//  ~~ Breakpoints ~~
+@breakpoint-large-tablet: 992px;
+@breakpoint-tablet: 768px;
+@breakpoint-mobile: 425px;
+
+//  ~~ Spacing ~~
+@spacing-xl: 32px;
+@spacing-lg: 24px;
+@spacing-md: 16px;
+@spacing-md-half: 12px;
+@spacing-sm: 8px;
+@spacing-xs: 4px;
+
+//  ~~ Colors ~~
+@primary-color: #333;
+@secondary-color: #ff5501;
+@gray-color: #6e716e;
+@light-gray-color: #dadada;
+@btn-text-color: #fff;
+@btn-bg-color: #1979c3;
+@btn-hover-color: #006bb4;
+
+//  ~~ Font Sizes ~~
+//  Desktop
+@font-size-xl: 3rem;
+@font-size-lg: 2rem;
+@font-size-md: 1.5rem;
+@font-size-sm: 1rem;
+
+//  Tablet
+@font-size-xl-tablet: 2.5rem;
+@font-size-lg-tablet: 1.5rem;
+@font-size-md-tablet: 1.25rem;
+@font-size-sm-tablet: 1rem;
+
+//  Mobile
+@font-size-xl-mobile: 2.2rem;
+@font-size-lg-mobile: 1.25rem;
+@font-size-md-mobile: 1.25rem;
+@font-size-sm-mobile: 0.75rem;
+
+//  Media Queries for Font Sizes
+.shero-featured-product-card {
+    &__font-sm {
+        font-size: @font-size-sm;
+    }
+    &__font-md {
+        font-size: @font-size-md;
+    }
+    &__font-lg {
+        font-size: @font-size-lg;
+    }
+    &__font-xl {
+        font-size: @font-size-xl;
+    }
+
+    @media (max-width: @breakpoint-tablet) {
+        &__font-sm {
+            font-size: @font-size-sm-tablet;
+        }
+        &__font-md {
+            font-size: @font-size-md-tablet;
+        }
+        &__font-lg {
+            font-size: @font-size-lg-tablet;
+        }
+        &__font-xl {
+            font-size: @font-size-xl-tablet;
+        }
+    }
+
+    @media (max-width: @breakpoint-mobile) {
+        &__font-sm {
+            font-size: @font-size-sm-mobile;
+        }
+        &__font-md {
+            font-size: @font-size-md-mobile;
+        }
+        &__font-lg {
+            font-size: @font-size-lg-mobile;
+        }
+        &__font-xl {
+            font-size: @font-size-xl-mobile;
+        }
+    }
+}
+
