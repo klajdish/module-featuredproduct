@@ -28,7 +28,7 @@ This Magento 2 module adds a custom featured product block to the homepage, with
 
 ### Type 2: Composer
 
- - Install the module composer by running `composer require sherocommerce/module-featuredproduct`
+ - Install the module composer by running `composer require sherocommerce/module-featuredproduct:dev-main`
  - Enable the module by running `php bin/magento module:enable SheroCommerce_FeaturedProduct`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
