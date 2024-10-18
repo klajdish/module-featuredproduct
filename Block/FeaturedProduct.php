@@ -112,7 +112,6 @@ class FeaturedProduct extends Template
             ? ImageDesktopPosition::IMAGE_DESKTOP_POSITION_RIGHT
             : ImageDesktopPosition::IMAGE_DESKTOP_POSITION_LEFT;
 
-
         return [
             'firstElementOrderPositionClass' => $baseClass . $imageDesktopPosition,
             'secondElementOrderPositionClass' => $baseClass . $otherPosition

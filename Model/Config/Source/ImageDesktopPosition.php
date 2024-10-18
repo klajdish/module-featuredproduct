@@ -6,8 +6,8 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class ImageDesktopPosition implements OptionSourceInterface
 {
-    const IMAGE_DESKTOP_POSITION_LEFT = 1;
-    const IMAGE_DESKTOP_POSITION_RIGHT = 2;
+    public const IMAGE_DESKTOP_POSITION_LEFT = 1;
+    public const IMAGE_DESKTOP_POSITION_RIGHT = 2;
 
     /**
      * Retrieve image desktop position options
