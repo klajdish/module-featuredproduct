@@ -5,15 +5,16 @@
 
 $featuredProduct = $block->getFeaturedProduct();
 
-$imageDesktopPosition = $block->getImageDesktopPosition();
 $baseClassName = 'shero-featured-product-card__order-';
-$imagePositionOrder = $baseClassName . $imageDesktopPosition;
-$productDetailsOrder = $baseClassName . ($imageDesktopPosition === '1' ? '2' : '1');
+$orderClasses = $block->prepareOrderPostionHtmlClasses($baseClassName);
 ?>
 
 <?php if ($featuredProduct): ?>
     <div class="shero-featured-product-card" role="article">
-        <div class="shero-featured-product-card__image-wrapper <?= $block->escapeHtml($imagePositionOrder); ?>">
+        <div
+            class="shero-featured-product-card__image-wrapper
+            <?= $block->escapeHtml($orderClasses['firstElementOrderPositionClass']); ?>"
+        >
             <img
                 class="shero-featured-product-card__image-wrapper-main"
                 src="<?= $block->escapeUrl($block->getImageUrl($featuredProduct)); ?>"
@@ -21,7 +22,10 @@ $productDetailsOrder = $baseClassName . ($imageDesktopPosition === '1' ? '2' : '
                 role="img"
             />
         </div>
-        <div class="shero-featured-product-card__details <?= $block->escapeHtml($productDetailsOrder); ?>">
+        <div
+            class="shero-featured-product-card__details
+            <?= $block->escapeHtml($orderClasses['secondElementOrderPositionClass']); ?>"
+        >
             <div class="shero-featured-product-card__info">
                 <h2 class="shero-featured-product-card__details-name shero-featured-product-card__font-xl">
                     <?= $block->escapeHtml($featuredProduct->getName()); ?>

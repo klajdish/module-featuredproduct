@@ -6,6 +6,9 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class ImageDesktopPosition implements OptionSourceInterface
 {
+    const IMAGE_DESKTOP_POSITION_LEFT = 1;
+    const IMAGE_DESKTOP_POSITION_RIGHT = 2;
+
     /**
      * Retrieve image desktop position options
      *
@@ -14,8 +17,8 @@ class ImageDesktopPosition implements OptionSourceInterface
     public function toOptionArray(): array
     {
         return [
-            ['value' => '1', 'label' => __('Left')],
-            ['value' => '2', 'label' => __('Right')],
+            ['value' => self::IMAGE_DESKTOP_POSITION_LEFT, 'label' => __('Left')],
+            ['value' => self::IMAGE_DESKTOP_POSITION_RIGHT, 'label' => __('Right')],
         ];
     }
 }

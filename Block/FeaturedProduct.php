@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
+use SheroCommerce\FeaturedProduct\Model\Config\Source\ImageDesktopPosition;
 
 class FeaturedProduct extends Template
 {
@@ -87,14 +88,35 @@ class FeaturedProduct extends Template
     /**
      * Get the card image desktop position.
      *
-     * @return string
+     * @return int
      */
-    public function getImageDesktopPosition(): string
+    public function getImageDesktopPosition(): int
     {
-        return $this->scopeConfig->getValue(
+        return (int) $this->scopeConfig->getValue(
             self::XML_PATH_IMAGE_DESKTOP_POSITION,
             ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * Prepare the HTML classes for the order position of card elements.
+     *
+     * @param string $baseClass
+     * @return string[]
+     */
+
+    public function prepareOrderPostionHtmlClasses($baseClass = ''): array
+    {
+        $imageDesktopPosition = $this->getImageDesktopPosition();
+        $otherPosition = $imageDesktopPosition === ImageDesktopPosition::IMAGE_DESKTOP_POSITION_LEFT
+            ? ImageDesktopPosition::IMAGE_DESKTOP_POSITION_RIGHT
+            : ImageDesktopPosition::IMAGE_DESKTOP_POSITION_LEFT;
+
+
+        return [
+            'firstElementOrderPositionClass' => $baseClass . $imageDesktopPosition,
+            'secondElementOrderPositionClass' => $baseClass . $otherPosition
+        ];
     }
 
     /**
